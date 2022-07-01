@@ -1,16 +1,10 @@
-# health_code
+# Health Code Simulator
 
-health code simulator
+<div style="font-size: 3em; font-weight: bold;">FUCK CCP</div>
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Flutter application.
+Avatar, name, qrcode and covid test days are configurable. Tap and change them!
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Screenshot:
+![screenshot](https://github.com/hasbai/health_code/blob/master/screenshot.jpg)
