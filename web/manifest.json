@@ -1,6 +1,6 @@
 {
-    "name": "health_code",
-    "short_name": "health_code",
+    "name": "健康码",
+    "short_name": "健康码",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

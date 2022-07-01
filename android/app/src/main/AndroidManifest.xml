@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="top.hath.health_code">
    <application
-        android:label="health_code"
+        android:label="健康码"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
