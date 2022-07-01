@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_code/qrcode.dart';
 import 'package:health_code/time.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 import 'avatar.dart';
 import 'constants.dart';
@@ -36,20 +36,10 @@ Widget body = Container(
         height: 290,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const TimeLine(),
-            QrImage(
-              data: '关注永雏塔菲喵',
-              version: 5,
-              errorCorrectionLevel: QrErrorCorrectLevel.H,
-              size: 220,
-              foregroundColor: green,
-              embeddedImage: const AssetImage('assets/qrcode_core.png'),
-              embeddedImageStyle: QrEmbeddedImageStyle(
-                size: const Size(48, 48),
-              ),
-            ),
-            const Text('绿色', style: TextStyle(
+          children: const [
+            TimeLine(),
+            QRCode(),
+            Text('绿色', style: TextStyle(
                 fontSize: 21,
                 color: green,
                 fontWeight: FontWeight.bold
