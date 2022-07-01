@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+const double iconSize = 24;
+const defaultName = '向晚';
 
 class Name extends StatefulWidget {
   const Name({Key? key}) : super(key: key);
@@ -10,28 +12,38 @@ class Name extends StatefulWidget {
 }
 
 class _NameState extends State<Name> {
-  static const defaultName = '向晚';
   String _name = defaultName;
   String name = defaultName;
+  bool hidden = false;
+  late String iconPath;
 
-  void displayName(String name){
-    _name = name;
-    var buffer = StringBuffer();
-    for(int i=0; i<name.length - 1; i++){
-      buffer.write('*');
-    }
-    buffer.write(name.substring(name.length - 1, name.length));
+  changeState(){
     setState(() {
-      this.name = buffer.toString();
+      if(hidden){
+        hidden = false;
+        iconPath = 'assets/eye_open.png';
+      }else{
+        hidden = true;
+        iconPath = 'assets/eye_close.png';
+      }
+    });
+    displayName(_name);
+  }
+
+  displayName(String name){
+    _name = name;
+    setState(() {
+      if (hidden){
+        this.name = '*' * (name.length - 1) + name[name.length - 1];
+      }else{
+        this.name = name;
+      }
     });
   }
 
   load() async {
     final db = await SharedPreferences.getInstance();
-    final name = db.getString('name');
-    if (name != null) {
-      _name = name;
-    }
+    _name = db.getString('name') ?? defaultName;
     displayName(_name);
   }
 
@@ -44,6 +56,7 @@ class _NameState extends State<Name> {
   @override
   void initState(){
     super.initState();
+    changeState();
     load();
   }
 
@@ -89,10 +102,15 @@ class _NameState extends State<Name> {
           },
         ),
         const SizedBox(width: 12),
-        Image.asset(
-          'assets/eye_closed.png',
-          width: 24,
-          height: 24,
+        InkWell(
+          child: Image.asset(
+            iconPath,
+            width: iconSize,
+            height: iconSize,
+          ),
+          onTap: () {
+            changeState();
+          },
         ),
       ],
     );

@@ -14,7 +14,7 @@ class Avatar extends StatefulWidget {
 
 class _AvatarState extends State<Avatar> {
   static const double size = 64;
-  ImageProvider _image = const AssetImage('assets/default_avatar.png');
+  ImageProvider _image = const AssetImage('assets/default_avatar.jpeg');
 
   loadImage() async {
     final db = await SharedPreferences.getInstance();
