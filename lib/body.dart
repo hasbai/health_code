@@ -50,7 +50,7 @@ Widget body = Container(
               ),
             ),
             const Text('绿色', style: TextStyle(
-                fontSize: 22,
+                fontSize: 21,
                 color: green,
                 fontWeight: FontWeight.bold
             ))

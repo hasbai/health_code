@@ -91,8 +91,8 @@ class _NameState extends State<Name> {
         const SizedBox(width: 12),
         Image.asset(
           'assets/eye_closed.png',
-          width: 32,
-          height: 32,
+          width: 24,
+          height: 24,
         ),
       ],
     );

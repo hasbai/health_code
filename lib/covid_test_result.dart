@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:numberpicker/numberpicker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 import 'constants.dart';
 
@@ -12,7 +12,26 @@ class CovidTestResult extends StatefulWidget {
 }
 
 class _CovidTestResultState extends State<CovidTestResult> {
-  int _day = 2;
+  int _day = 1;
+
+  List<String> time(){
+    if (_day <= 2){
+      return ['${_day * 24}', '小时'];
+    } else {
+      return ['$_day', '天'];
+    }
+  }
+
+  Color color(){
+    switch (_day){
+      case 1:
+        return green;
+      case 2:
+        return purple;
+      default:
+        return Colors.black;
+    }
+  }
 
   load() async {
     final db = await SharedPreferences.getInstance();
@@ -42,11 +61,11 @@ class _CovidTestResultState extends State<CovidTestResult> {
       children: [
         InkWell(
           child: Text(
-            '$_day',
-            style: const TextStyle(
-                fontSize: 48,
+            time()[0],
+            style: TextStyle(
+                fontSize: 45,
                 fontWeight: FontWeight.bold,
-                color: green,
+                color: color(),
             ),
           ),
           onTap: () {
@@ -54,16 +73,27 @@ class _CovidTestResultState extends State<CovidTestResult> {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('设置天数'),
-                  content: NumberPicker(
-                    value: _day,
-                    minValue: 1,
-                    maxValue: 14,
-                    axis: Axis.horizontal,
-                    onChanged: (value) {
-                      setState(() {
-                        _day = value;
-                      });
-                    },
+                  content:SleekCircularSlider(
+                      appearance: const CircularSliderAppearance(
+                        size: 200,
+                      ),
+                      min: 1,
+                      max: 14,
+                      initialValue: _day.toDouble(),
+                      innerWidget: (double value) {
+                        return Center(child: Text(
+                            '${value.toInt()}',
+                            style: const TextStyle(
+                                fontSize: 48,
+                                fontWeight: FontWeight.w300
+                            ),
+                        ));
+                      },
+                      onChange: (value) {
+                        setState(() {
+                          _day = value.toInt();
+                        });
+                      }
                   ),
                   actions: [
                     TextButton(
@@ -81,7 +111,7 @@ class _CovidTestResultState extends State<CovidTestResult> {
                 ));
           },
         ),
-        const Text(' 天内核酸检测结果'),
+        Text('${time()[1]}内核酸检测结果'),
         const Text('【阴性】', style: TextStyle(
             color: green,
             fontWeight: FontWeight.bold
