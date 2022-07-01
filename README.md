@@ -1,5 +1,7 @@
 # Health Code Simulator
 
+Display a fake health code.
+
 <div style="font-size: 3em; font-weight: bold;">FUCK CCP</div>
 
 ## Usage
