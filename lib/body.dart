@@ -1,9 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:health_code/time.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-const green = Color(0xff11b363);
+import 'avatar.dart';
+import 'constants.dart';
+import 'covid_test_result.dart';
+import 'name.dart';
 
 Widget body = Container(
     margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
@@ -25,30 +27,9 @@ Widget body = Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(
-              'assets/default_avatar.png',
-              width: 84,
-              height: 84,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('*晚',style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold
-                )),
-                const SizedBox(width: 12),
-                Image.asset(
-                  'assets/eye_closed.png',
-                  width: 32,
-                  height: 32,
-                ),
-              ],
-            ),
-            Image.asset(
-                'assets/亲属随申码.png',
-                scale: 1.5
-            ),
+            const Avatar(),
+            const Name(),
+            Image.asset('assets/亲属随申码.png', scale: 1.5),
           ]
       )),
       SizedBox(
@@ -85,25 +66,7 @@ Widget body = Container(
                 'assets/已支持刷医保.png',
                 width: 260
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
-                children: const [
-                  Text('4',style: TextStyle(
-                      fontSize: 60,
-                      fontWeight: FontWeight.bold
-                  )),
-                  Text(' 天内核酸检测结果'),
-                  Text('【阴性】', style: TextStyle(
-                        color: green,
-                        fontWeight: FontWeight.bold
-                  )),
-          ],
-)
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.end,
-
+              const CovidTestResult(),
             ],
           )
       )

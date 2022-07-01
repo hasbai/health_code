@@ -54,6 +54,6 @@ class _TimeLineState extends State<TimeLine> {
   }
 
   String _formatDateTime(DateTime dateTime) {
-    return DateFormat('yyyy-MM-dd hh:mm:ss').format(dateTime);
+    return DateFormat('yyyy-MM-dd HH:mm:ss').format(dateTime);
   }
 }
