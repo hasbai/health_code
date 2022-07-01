@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
-import 'constants.dart';
+import '../constants.dart';
 
 class CovidTestResult extends StatefulWidget {
   const CovidTestResult({Key? key}) : super(key: key);

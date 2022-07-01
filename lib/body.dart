@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:health_code/qrcode.dart';
-import 'package:health_code/time.dart';
+import 'package:health_code/components/qrcode.dart';
+import 'package:health_code/components/time.dart';
 
-import 'avatar.dart';
+import 'components/avatar.dart';
+import 'components/covid_test_result.dart';
+import 'components/name.dart';
 import 'constants.dart';
-import 'covid_test_result.dart';
-import 'name.dart';
 
 Widget body = Container(
     margin: const EdgeInsets.fromLTRB(0, 12, 0, 0),
@@ -60,7 +60,4 @@ Widget body = Container(
             ],
           )
       )
-
-
-
 ]));
