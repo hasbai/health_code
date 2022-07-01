@@ -31,13 +31,13 @@ class _TimeLineState extends State<TimeLine> {
         Text(
             timeString.substring(0, timeString.length -2),
             style: const TextStyle(
-                fontSize: 20,
+                fontSize: 15,
             )
         ),
         Text(
           timeString.substring(timeString.length -2, timeString.length),
           style: const TextStyle(
-            fontSize: 30,
+            fontSize: 22,
             fontWeight: FontWeight.bold
           ))
       ],

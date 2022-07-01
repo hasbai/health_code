@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(body:SingleChildScrollView(child: Container(
         decoration: const BoxDecoration(color: Color(0xffdfc797)),
-        padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
+        padding: const EdgeInsets.fromLTRB(20, 36, 20, 20),
         child: DefaultTextStyle(
             style: const TextStyle(
-              fontSize: 22,
+              fontSize: 16,
               color: Colors.black,
             ),
             child: Column(

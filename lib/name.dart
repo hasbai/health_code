@@ -56,8 +56,9 @@ class _NameState extends State<Name> {
           child: Text(
             name,
             style: const TextStyle(
-              fontSize: 28,
+              fontSize: 20,
               color: Colors.black,
+              fontWeight: FontWeight.bold,
             ),
           ),
           onTap: () {

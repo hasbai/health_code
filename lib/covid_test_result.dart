@@ -44,8 +44,9 @@ class _CovidTestResultState extends State<CovidTestResult> {
           child: Text(
             '$_day',
             style: const TextStyle(
-                fontSize: 60,
+                fontSize: 48,
                 fontWeight: FontWeight.bold,
+                color: green,
             ),
           ),
           onTap: () {
